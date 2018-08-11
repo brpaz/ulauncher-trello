@@ -31,6 +31,10 @@ You can get both [here](https://trello.com/app-key). First generate your API key
 
 To see your changes, stop ulauncher and run it from the command line with: ```ulauncher -v```.
 
+## Contributing
+
+All contributions all welcome. Please read [CONTRIBUTING.md](CONTRIBUTING.md) for start.
+
 ## License
 
 MIT
