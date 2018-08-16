@@ -9,6 +9,7 @@
 
 * [ulauncher](https://ulauncher.io/)
 * Python >= 2.7
+* Trello package ```pip install trello```
 
 ## Install
 
