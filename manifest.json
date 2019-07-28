@@ -1,6 +1,5 @@
 {
-    "manifest_version": "2",
-    "api_version": "1",
+    "required_api_version": "^2.0.0",
     "name": "Trello",
     "description": "Quick open your Trello boards",
     "developer_name": "Bruno Paz",
@@ -12,7 +11,7 @@
             "id": "demo_kw",
             "type": "keyword",
             "name": "Trello",
-            "description": "Quick open your Trello boards",
+            "description": "Trello Boards",
             "default_value": "trello"
         },
         {

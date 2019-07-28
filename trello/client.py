@@ -7,7 +7,7 @@ API_BASE_URL = 'https://api.trello.com/1/'
 BOARDS_CACHE_TIME = 300  # five minutes
 
 
-class Client(object):
+class Client():
     """ Trello API client """
 
     def __init__(self, logger, api_key=None, api_token=None):
@@ -36,10 +36,13 @@ class Client(object):
             response = Cache.get("boards")
             self.logger.info('Cache hit')
         else:
-            params = {"key": self.api_key,
-                      "token": self.api_token, "filter": 'open'}
-            req = requests.get('%s/member/me/boards' %
-                               API_BASE_URL, params=params)
+            params = {
+                "key": self.api_key,
+                "token": self.api_token,
+                "filter": 'open'
+            }
+            req = requests.get('%s/member/me/boards' % API_BASE_URL,
+                               params=params)
             response = req.json()
             if req.status_code != 200:
                 self.logger.error('Trello API Error: %s' % response)
@@ -73,4 +76,5 @@ class TrelloApiException(Exception):
         self.message = message
 
     def get_status_code(self):
+        """ Returns the Status Code """
         return self.status

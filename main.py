@@ -37,31 +37,33 @@ class KeywordQueryEventListener(EventListener):
         items = []
 
         try:
-            boards = extension.trello_client.get_boards(
-                event.get_argument())
+            boards = extension.trello_client.get_boards(event.get_argument())
 
             if not boards:
-                return [ExtensionResultItem(
-                    icon='images/icon.png',
-                    name='No boards found with name %s' % event.get_argument(),
-                    on_enter=HideWindowAction())
+                return [
+                    ExtensionResultItem(icon='images/icon.png',
+                                        name='No boards found with name %s' %
+                                        event.get_argument(),
+                                        on_enter=HideWindowAction())
                 ]
 
             for board in boards[:25]:
-                items.append(ExtensionSmallResultItem(
-                    icon='images/icon.png',
-                    name=board['name'],
-                    description=board['description'],
-                    on_enter=OpenUrlAction(board['url']))
-                )
+                items.append(
+                    ExtensionSmallResultItem(icon='images/icon.png',
+                                             name=board['name'],
+                                             description=board['description'],
+                                             on_enter=OpenUrlAction(
+                                                 board['url'])))
 
         except TrelloApiException as e:  # pylint: disable=invalid-name
             LOGGER.error(e)
-            items.append(ExtensionResultItem(
-                icon='images/icon.png',
-                name='Error when connecting to Trello API ( status code : %s )' % e.get_status_code(
-                ),
-                on_enter=HideWindowAction()))
+            items.append(
+                ExtensionResultItem(
+                    icon='images/icon.png',
+                    name=
+                    'Error when connecting to Trello API ( status code : %s )'
+                    % e.get_status_code(),
+                    on_enter=HideWindowAction()))
 
         return RenderResultListAction(items)
 

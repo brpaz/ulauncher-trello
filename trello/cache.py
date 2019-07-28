@@ -2,7 +2,7 @@
 import time
 
 
-class Cache(object):
+class Cache():
     """ Handles Caching """
 
     _cache_ = {}
@@ -35,7 +35,7 @@ class Cache(object):
     @classmethod
     def clean(cls):
         """Remove all expired items from the cache"""
-        for key in cls._cache_.keys():  # pylint: disable=C0201
+        for key in list(cls._cache_.keys()):  # pylint: disable=C0201
             cls.get(key)  # Attempting to fetch an expired item deletes it
 
     @classmethod

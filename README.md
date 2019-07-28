@@ -1,14 +1,19 @@
 # Ulauncher-Trello
 
-> Open your Trello boards from Ulauncher
+[![Ulauncher Extension](https://img.shields.io/badge/Ulauncher-Extension-green.svg?style=for-the-badge)](https://ext.ulauncher.io/-/github-brpaz-ulauncher-trello)
+[![CircleCI](https://img.shields.io/circleci/build/github/brpaz/ulauncher-trello.svg?style=for-the-badge)](https://circleci.com/gh/brpaz/ulauncher-trello)
+![License](https://img.shields.io/github/license/brpaz/ulauncher-trello.svg?style=for-the-badge)
+
+> Open your Trello boards from [Ulauncher](https://ulauncher.io/)
+
 ## Demo
 
 ![demo](demo.gif)
 
 ## Requirements
 
-* [ulauncher](https://ulauncher.io/)
-* Python >= 2.7
+* [ulauncher](https://ulauncher.io/) >= 5
+* Python >= 3
 
 ## Install
 
@@ -26,15 +31,22 @@ You can get both [here](https://trello.com/app-key). First generate your API key
 
 ## Development
 
-1. Clone the repo.
-2. From the root folder of the project, run ```make link```. This will create a symlink to the "ulauncher extensions" directory.
-
-To see your changes, stop ulauncher and run it from the command line with: ```ulauncher -v```.
+```
+git clone https://github.com/brpaz/ulauncher-trello
+make link
+make dev
+```
 
 ## Contributing
 
-All contributions all welcome. Please read [CONTRIBUTING.md](CONTRIBUTING.md) for start.
+Contributions, issues and Features requests are welcome.
+
+## Show your support
+
+<a href="https://www.buymeacoffee.com/Z1Bu6asGV" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Buy Me A Coffee" style="height: 41px !important;width: 174px !important;box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important;" ></a>
 
 ## License
 
-MIT
+Copywright @ 2019 [Bruno Paz](https://github.com/brpaz)
+
+This project is [MIT](LLICENSE) Licensed.
