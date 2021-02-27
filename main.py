@@ -10,6 +10,7 @@ from ulauncher.api.shared.item.ExtensionSmallResultItem import ExtensionSmallRes
 
 from ulauncher.api.shared.action.HideWindowAction import HideWindowAction
 from ulauncher.api.shared.action.OpenUrlAction import OpenUrlAction
+from ulauncher.api.shared.action.RunScriptAction import RunScriptAction
 from trello.client import Client as TrelloClient, TrelloApiException
 
 LOGGER = logging.getLogger(__name__)
@@ -52,8 +53,7 @@ class KeywordQueryEventListener(EventListener):
                     ExtensionSmallResultItem(icon='images/icon.png',
                                              name=board['name'],
                                              description=board['description'],
-                                             on_enter=OpenUrlAction(
-                                                 board['url'])))
+                                             on_enter= RunScriptAction(board['script']) if bool(board['script']) else OpenUrlAction(board['url'])))
 
         except TrelloApiException as e:  # pylint: disable=invalid-name
             LOGGER.error(e)
@@ -77,6 +77,9 @@ class PreferencesEventListener(EventListener):
     def on_event(self, event, extension):
         extension.trello_client.set_api_key(event.preferences['api_key'])
         extension.trello_client.set_api_token(event.preferences['api_token'])
+        extension.trello_client.set_webapp_command(event.preferences['webapp_command'])
+        extension.trello_client.set_app_class(event.preferences['app_class'])
+        extension.trello_client.set_user_data_dir(event.preferences['user_data_dir'])
 
 
 class PreferencesUpdateEventListener(EventListener):
@@ -91,6 +94,15 @@ class PreferencesUpdateEventListener(EventListener):
 
         if event.id == 'api_token':
             extension.trello_client.set_api_token(event.new_value)
+
+        if event.id == 'webapp_command':
+            extension.trello_client.set_webapp_command(event.new_value)
+
+        if event.id == 'app_class':
+            extension.trello_client.set_app_class(event.new_value)
+
+        if event.id == 'user_data_dir':
+            extension.trello_client.set_user_data_dir(event.new_value)
 
 
 if __name__ == '__main__':
