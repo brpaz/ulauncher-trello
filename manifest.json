@@ -1,32 +1,54 @@
 {
-    "required_api_version": "^2.0.0",
-    "name": "Trello",
-    "description": "Quick open your Trello boards",
-    "developer_name": "Bruno Paz",
-    "icon": "images/icon.png",
-    "options": {
-        "query_debounce": 0.1
+  "required_api_version": "^2.0.0",
+  "name": "Trello",
+  "description": "Quick open your Trello boards",
+  "developer_name": "Bruno Paz",
+  "icon": "images/icon.png",
+  "options": {
+    "query_debounce": 0.1
+  },
+  "preferences": [
+    {
+      "id": "demo_kw",
+      "type": "keyword",
+      "name": "Trello",
+      "description": "Trello Boards",
+      "default_value": "trello"
     },
-    "preferences": [{
-            "id": "demo_kw",
-            "type": "keyword",
-            "name": "Trello",
-            "description": "Trello Boards",
-            "default_value": "trello"
-        },
-        {
-            "id": "api_key",
-            "type": "input",
-            "name": "API Key",
-            "description": "API key required to access the Trello API. You can yours from <a href=\"https://trello.com/app-key\">here</a>",
-            "default_value": ""
-        },
-        {
-            "id": "api_token",
-            "type": "input",
-            "name": "API token",
-            "description": "API Token required to access tjr Trello API. You can yours after generating your API key",
-            "default_value": ""
-        }
-    ]
+    {
+      "id": "api_key",
+      "type": "input",
+      "name": "API Key",
+      "description": "API key required to access the Trello API. You can yours from <a href=\"https://trello.com/app-key\">here</a>",
+      "default_value": ""
+    },
+    {
+      "id": "api_token",
+      "type": "input",
+      "name": "API token",
+      "description": "API Token required to access tjr Trello API. You can yours after generating your API key",
+      "default_value": ""
+    },
+    {
+      "id": "webapp_command",
+      "type": "input",
+      "name": "Webapp Command",
+      "description": "A command to launch it as a webapp. E.g. chromium",
+      "default_value": ""
+    },
+    {
+      "id": "app_class",
+      "type": "input",
+      "name": "App Class",
+      "description": "App class to launch it as webapp. Find it in your Trello Webapp shortcut",
+      "default_value": ""
+    },
+    {
+      "id": "user_data_dir",
+      "type": "input",
+      "name": "User Data Dir",
+      "description": "Webapp user profile. Find it in your Trello Webapp shortcut",
+      "default_value": ""
+    }
+  ]
 }
